@@ -2,7 +2,7 @@
 // @name         Masker
 // @icon         https://i.imgur.com/xehDhCN.png
 // @namespace    skoshy.com
-// @version      0.1.0
+// @version      0.1.2
 // @description  Masks a page when you mouse out of it
 // @author       Stefan Koshy
 // @updateURL    https://github.com/skoshy/Masker/raw/master/userscript.user.js
@@ -45,21 +45,23 @@ css.overrides.disableUnfocusedTransparency = [];
 
 css.common = {};
 css.common.css = `
+
 .masker-element {
-z-index: -111111111111111111111111111111111111111111;
+z-index: 111111111111111111111111111111111111111111;
 position: fixed;
 width: 100%;
 height: 100%;
 top: 0;
 left: 0;
-opacity: 0;
 background: black !important;
-transition: opacity .1s ease-in-out;
+visibility: hidden;
+opacity: 0;
+transition: visibility .1s ease-in-out, opacity .1s ease-in-out;
 }
 
 .`+SCRIPT_CLASS_ENABLED+` .masker-element {
 opacity: .90;
-z-index: 10000000000000000000000000000000000;
+visibility: visible;
 }
 
 `;
