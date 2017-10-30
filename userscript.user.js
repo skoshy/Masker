@@ -5,7 +5,7 @@
 // @version      0.1.0
 // @description  Masks a page when you mouse out of it
 // @author       Stefan Koshy
-// @updateURL    
+// @updateURL    https://github.com/skoshy/Masker/raw/master/userscript.user.js
 // @match        *://*/*
 // @grant        GM_getValue
 // @grant        GM_setValue
