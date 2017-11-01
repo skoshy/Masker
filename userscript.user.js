@@ -2,7 +2,7 @@
 // @name         Masker
 // @icon         https://i.imgur.com/xehDhCN.png
 // @namespace    skoshy.com
-// @version      0.1.3
+// @version      0.1.4
 // @description  Masks a page when you mouse out of it
 // @author       Stefan Koshy
 // @updateURL    https://github.com/skoshy/Masker/raw/master/userscript.user.js
@@ -20,6 +20,7 @@ var CURRENT_SITE = getCurrentSite();
 var toggleMaskerTimeout = null;
 var toggleMaskerShowContentDelay = 100;
 var toggleMaskerHideContentDelay = 400;
+var maskerOpacity = .9;
 
 // From https://gist.github.com/arantius/3123124
 // These are replacement functions for GreaseMonkey scripts, but the only work on a single domain instead of being cross domain
@@ -57,14 +58,13 @@ width: 100%;
 height: 100%;
 top: 0;
 left: 0;
-background: black !important;
+background: rgba(0,0,0,0) !important;
 visibility: hidden;
-opacity: 0;
-transition: visibility .1s ease-in-out, opacity .1s ease-in-out;
+transition: visibility .1s ease-in-out, background .1s ease-in-out;
 }
 
 .`+SCRIPT_CLASS_ENABLED+` .masker-element {
-opacity: .90;
+background: rgba(0,0,0,`+maskerOpacity+`) !important;
 visibility: visible;
 }
 
